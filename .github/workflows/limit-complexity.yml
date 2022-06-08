@@ -1,4 +1,4 @@
-name: Limit complexity
+name: Limit complexity and file size
 
 on: [push, pull_request]
 
@@ -14,3 +14,7 @@ jobs:
 
     - name: Limit complexity
       run: $HOME/.local/bin/lizard --exclude "./test/*" --CCN 3
+
+    - name: Check size
+      run: |
+        $HOME/.local/bin/lizard | bash .github/workflows/lpar.sh 50
