@@ -9,7 +9,12 @@ vector<int> values = {3, 3, 4, 5, 10, 11, 12};
 int count1 = 0;
 bool flag = false;
 
-updateCount(int value,int &a, int &b){
+void checkAndStartCount(){
+    if (flag){
+        count1++;
+    }
+}
+void updateCount(int value,int &a, int &b){
     if (value==a){
         flag = true;
     }
@@ -17,9 +22,7 @@ updateCount(int value,int &a, int &b){
         count1++;
         flag = false;
     }
-    if (flag){
-        count1++;
-    }
+    checkAndStartCount();
 }
 
 int getReadingsFromRange(int a ,int b){
