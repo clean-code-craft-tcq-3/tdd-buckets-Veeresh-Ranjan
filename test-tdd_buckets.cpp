@@ -1,11 +1,46 @@
 #include "tdd_buckets.h"
 
+void testCode(){
+    void (*funcPtr)(string,int);
+    funcPtr = printOnConsole;
+    vector<int> sequence1 = {3, 3, 5, 4, 10, 11, 12};
+    int threeToFiveCount,tenToTwelveCount;
+    printFlag = false;
+    getReadingsFromSequence(sequence1,funcPtr,threeToFiveCount,tenToTwelveCount);
+    assert(threeToFiveCount == 4);
+    assert(tenToTwelveCount == 3);
+    assert(printFlag == true);
+    printFlag = false;
+    sequence1 = {5, 4};
+    getReadingsFromSequence(sequence1,funcPtr,threeToFiveCount,tenToTwelveCount);
+    assert(threeToFiveCount == 2);
+    assert(tenToTwelveCount == 0);
+    assert(printFlag == true);
+    printFlag = false;
+    printFlag = false;
+    sequence1 = {12, 11, 10, 10, 11};
+    getReadingsFromSequence(sequence1,funcPtr,threeToFiveCount,tenToTwelveCount);
+    assert(threeToFiveCount == 0);
+    assert(tenToTwelveCount == 5);
+    assert(printFlag == true);
+    printFlag = false;
+    printFlag = false;
+    sequence1 = {3, 4, 4, 10, 10, 12};
+    getReadingsFromSequence(sequence1,funcPtr,threeToFiveCount,tenToTwelveCount);
+    assert(threeToFiveCount == 3);
+    assert(tenToTwelveCount == 3);
+    assert(printFlag == true);
+    printFlag = false;
+    printFlag = false;
+    sequence1 = {3, 5, 10, 10, 11, 11 ,12};
+    getReadingsFromSequence(sequence1,funcPtr,threeToFiveCount,tenToTwelveCount);
+    assert(threeToFiveCount == 2);
+    assert(tenToTwelveCount == 5);
+    assert(printFlag == true);
+    printFlag = false;
+}
+
 int main(){
-    assert(getReadingsFromRange(3,5)==4);
-    assert(getReadingsFromRange(4,5)==2);
-    assert(getReadingsFromRange(3,4)==3);
-    assert(getReadingsFromRange(10,12)==3);
-    assert(getReadingsFromRange(3,12)==7);
-    assert(getReadingsFromRange(4,12)==5);
+    testCode();
     cout<<"All Assertions passed"<<endl;
 }
