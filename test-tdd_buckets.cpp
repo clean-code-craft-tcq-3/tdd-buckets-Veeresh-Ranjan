@@ -1,4 +1,4 @@
-#include "test-tdd_buckets.h"
+#include "tdd_test.h"
 
 void testCode3(){
     void (*printPtr)(string,int);
