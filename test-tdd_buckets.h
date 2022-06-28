@@ -1,4 +1,5 @@
 #include "tdd_buckets.h"
+void testCode3();
 void testCode(){
     void (*funcPtr)(string,int);
     funcPtr = printOnConsole;
