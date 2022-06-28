@@ -36,8 +36,5 @@ vector<int> getCurrentFromSensor(vector<int> sequences,int (*funcptr)(int)){
         cout<<*itr<<endl;
         currentInAmps.push_back(funcptr(*itr));
     }
-    for(unsigned int i=0;i<currentInAmps.size();i++){
-        cout<<currentInAmps[i]<<endl;
-    }
     return currentInAmps;
 }
