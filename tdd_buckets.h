@@ -30,7 +30,7 @@ void checkNewRange(vector<int> &rangeBegin, int nextSample, int endSample){
 vector<int> getReadingsFromSequence(vector <int> sequence,void (*printPtr)(vector<int>,vector<int>,vector<int>)){
     sort(sequence.begin(),sequence.end());
     vector<int> rangeBegin, rangeEnd, arrayOfCounts;
-    int count;
+    int count = 0;
     rangeBegin.push_back(sequence[0]);
     for (unsigned int i = 0; i<sequence.size(); i++){
         count++;
