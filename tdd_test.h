@@ -1,40 +1,32 @@
 #include "tdd_buckets.h"
 void testCode(){
-    void (*funcPtr)(string,int);
-    funcPtr = printOnConsole;
+    void (*printPtr)(vector<int>,vector<int>,vector<int>);
+    printPtr = printOnConsole;
     vector<int> sequence1 = {3, 3, 5, 4, 10, 11, 12};
-    int threeToFiveCount,tenToTwelveCount;
+    vector<int> readings = {4,3};
     printFlag = false;
-    getReadingsFromSequence(sequence1,funcPtr,threeToFiveCount,tenToTwelveCount);
-    assert(threeToFiveCount == 4);
-    assert(tenToTwelveCount == 3);
+    assert(getReadingsFromSequence(sequence1,printPtr)==readings);
     assert(printFlag == true);
     printFlag = false;
     sequence1 = {5, 4};
-    getReadingsFromSequence(sequence1,funcPtr,threeToFiveCount,tenToTwelveCount);
-    assert(threeToFiveCount == 2);
-    assert(tenToTwelveCount == 0);
+    readings = {2};
+    assert(getReadingsFromSequence(sequence1,printPtr)==readings);
     assert(printFlag == true);
-    printFlag = false;
     printFlag = false;
     sequence1 = {12, 11, 10, 10, 11};
-    getReadingsFromSequence(sequence1,funcPtr,threeToFiveCount,tenToTwelveCount);
-    assert(threeToFiveCount == 0);
-    assert(tenToTwelveCount == 5);
+    readings = {5};
+    assert(getReadingsFromSequence(sequence1,printPtr)==readings);
     assert(printFlag == true);
     printFlag = false;
-    printFlag = false;
-    sequence1 = {3, 4, 4, 10, 10, 12};
-    getReadingsFromSequence(sequence1,funcPtr,threeToFiveCount,tenToTwelveCount);
-    assert(threeToFiveCount == 3);
-    assert(tenToTwelveCount == 3);
+    sequence1 = {3, 4, 4, 10, 10, 13, 12};
+    readings = {3,2,2};
+    assert(getReadingsFromSequence(sequence1,printPtr)==readings);
     assert(printFlag == true);
-    printFlag = false;
     printFlag = false;
 }
 void testCode2(){
     vector<int> seqences = {1146,1265,4562,1366,1457};
-    vector<int> result = {3,3,-1,3,4};
+    vector<int> result = {3,3,3,4};
     int (*funcptr)(int);
     funcptr = &getCurrentInAmps12bit;
     assert(getCurrentFromSensor(seqences,funcptr) == result);
